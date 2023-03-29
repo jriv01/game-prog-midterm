@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4181146392946212246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4181146393005065063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4181146393239532663}
   - component: {fileID: 4181146393239532662}
   - component: {fileID: 4181146393239532665}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KillZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,9 +199,9 @@ GameObject:
   - component: {fileID: 4181146393380161608}
   - component: {fileID: 4181146393380161611}
   - component: {fileID: 4181146393380161609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LavaPool
-  m_TagString: Untagged
+  m_TagString: LavaPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 798830748515534117}
   - component: {fileID: 6127392389286868986}
   - component: {fileID: 9135874138053264588}
-  - component: {fileID: -2497206375442693520}
+  - component: {fileID: 3058426085340984066}
   m_Layer: 0
   m_Name: FallingStalacite
   m_TagString: Spike
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2497206375442693520
+--- !u!114 &3058426085340984066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,6 +147,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5061361930789845050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd594be2e3dee6498d0212eb45b41e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 767f01b029d87bf4b88fce21cf35be70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
