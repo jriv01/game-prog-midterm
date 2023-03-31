@@ -9,6 +9,7 @@ TagManager:
   - LavaPool
   - Destructible
   - rock
+  - gunCollect
   layers:
   - Default
   - TransparentFX
