@@ -96,7 +96,16 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Spike")){
             hp-=1;
             StartCoroutine(DamageTaken());
+
             SceneManager.LoadScene("Fail");
+
+        }
+        if(other.CompareTag("Enemy")){
+            print("HIT");
+            hp -= 1;
+            StartCoroutine(DamageTaken());
+            SceneManager.LoadScene("Fail");
+
         }
         if(other.CompareTag("Fireball")){
             hp-=2;
