@@ -10,6 +10,9 @@ TagManager:
   - Destructible
   - rock
   - gunCollect
+  - TNTBox
+  - bounds
+  - Enemy
   layers:
   - Default
   - TransparentFX
