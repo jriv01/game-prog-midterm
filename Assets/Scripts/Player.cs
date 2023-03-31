@@ -60,6 +60,12 @@ public class Player : MonoBehaviour
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
 
+        if(other.CompareTag("Enemy")){
+            print("HIT");
+            hp -= 1;
+            StartCoroutine(DamageTaken());
+        }
+
         if(Input.GetMouseButtonDown(1) && dynamiteCount > 0){
             StartCoroutine(throwDynamite());
         }
@@ -98,19 +104,6 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Spike")){
             hp-=1;
             StartCoroutine(DamageTaken());
-<<<<<<< Updated upstream
-
-            SceneManager.LoadScene("Fail");
-
-        }
-        if(other.CompareTag("Enemy")){
-            print("HIT");
-            hp -= 1;
-            StartCoroutine(DamageTaken());
-            SceneManager.LoadScene("Fail");
-
-=======
->>>>>>> Stashed changes
         }
         if(other.CompareTag("Fireball")){
             hp-=2;
