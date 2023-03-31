@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -45,15 +46,17 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Spike")){
             hp-=1;
             StartCoroutine(DamageTaken());
-
+            SceneManager.LoadScene("Fail");
         }
         if(other.CompareTag("Fireball")){
             hp-=2;
             StartCoroutine(DamageTaken());
+            SceneManager.LoadScene("Fail");
         }
         if(other.CompareTag("LavaPool")){
             hp-=10;
             StartCoroutine(DamageTaken());
+            SceneManager.LoadScene("Fail");
         }
     }
 

@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class TutorialButton : MonoBehaviour
 {
     public string sceneName;
-    GameManager _gameManager;
+    //GameManager _gameManager;
     public void Tutorial(){
-        _gameManager = FindObjectOfType<GameManager>();
+        //_gameManager = FindObjectOfType<GameManager>();
         SceneManager.LoadScene(sceneName);
     }
 }

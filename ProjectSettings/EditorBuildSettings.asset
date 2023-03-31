@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Easy.unity
     guid: 9eedeffa30edeb243b6bd1afd17352a1
+  - enabled: 1
+    path: Assets/Scenes/Medium1.unity
+    guid: 716e0373e2056494086c15b6b7220c55
+  - enabled: 1
+    path: Assets/Scenes/SecondMediumLevel.unity
+    guid: b30ba933d1bb063438350a3a6dcdb806
+  - enabled: 1
+    path: Assets/Scenes/HardLevel.unity
+    guid: 9598faa999c7d3a4cbca5e19b52010c5
+  - enabled: 1
+    path: Assets/Scenes/Fail.unity
+    guid: 2b021f22fb592403bb48fb2833a0d19b
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: ec169b25ad6ab4097b720b06b784f0ab
   m_configObjects: {}

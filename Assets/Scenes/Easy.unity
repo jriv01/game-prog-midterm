@@ -976,6 +976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LavaPool
       objectReference: {fileID: 0}
+    - target: {fileID: 4181146393380161610, guid: b35db1b4b33d9b74d94d9a8aa1b03554, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35db1b4b33d9b74d94d9a8aa1b03554, type: 3}
 --- !u!1001 &1136163119

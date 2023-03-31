@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LavaPool : MonoBehaviour
 {
-    public int fireballChance = 10;
+    public int fireballChance = 20;
     public GameObject fireballPrefab;
     public FireballSpawnPoint[] spawnPoints;
 
