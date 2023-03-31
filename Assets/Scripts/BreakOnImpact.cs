@@ -17,6 +17,9 @@ public class BreakOnImpact : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        Destroy(gameObject);
+        if(!(other.CompareTag("Player") || other.CompareTag("rock"))){
+            
+            Destroy(gameObject);
+        }
     } 
 }

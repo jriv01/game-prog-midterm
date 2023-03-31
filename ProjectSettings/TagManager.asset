@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - LavaPool
   - Destructible
+  - rock
   layers:
   - Default
   - TransparentFX
