@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5181439367676843401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5181439367676843400}
+  m_Layer: 3
+  m_Name: feet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5181439367676843400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181439367676843401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: -2.28, z: 0}
+  m_LocalScale: {x: 1.0079412, y: 1.0079412, z: 1.0079412}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7351722076977182550}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5181439367892498473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5181439367892498472}
+  m_Layer: 3
+  m_Name: throw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5181439367892498472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181439367892498473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.56, y: 0.27, z: 0}
+  m_LocalScale: {x: 1.0079412, y: 1.0079412, z: 1.0079412}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7351722076977182550}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7351722076977182547
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,11 +72,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7351722076977182550}
   - component: {fileID: 7351722076977182549}
-  - component: {fileID: 7351722076977182548}
   - component: {fileID: 7351722076977182552}
   - component: {fileID: 7351722076977182551}
+  - component: {fileID: 7351722076977182548}
   m_Layer: 3
-  m_Name: Player
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,12 +89,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7351722076977182547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8439, y: -1.8239, z: 0}
-  m_LocalScale: {x: 0.8928, y: 0.35537317, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.93, y: -1.15, z: 0}
+  m_LocalScale: {x: 0.59, y: 0.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7351722078352500708}
+  - {fileID: 5181439367892498472}
+  - {fileID: 5181439367676843400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82,30 +145,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.1901954, y: 4.69}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7351722076977182548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351722076977182547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c90a5a7381814f47921e8fcebedfea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 600
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1
-  feet: {fileID: 7351722078352500708}
-  speed: 10
 --- !u!50 &7351722076977182552
 Rigidbody2D:
   serializedVersion: 4
@@ -121,7 +166,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1.75
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -140,47 +185,46 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12726873, y: 0}
+  m_Offset: {x: -0.14555748, y: -0.026010513}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.1901954, y: 4.69}
-    newSize: {x: 1.1901954, y: 4.69}
+    newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9356581, y: 4.69}
+  m_Size: {x: 0.7978214, y: 4.5836515}
   m_EdgeRadius: 0
---- !u!1 &7351722078352500707
-GameObject:
+--- !u!114 &7351722076977182548
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7351722078352500708}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7351722078352500708
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351722078352500707}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16, y: -2, z: 0.2649912}
-  m_LocalScale: {x: 1.1200718, y: 6.6577897, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7351722076977182550}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7351722076977182547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c90a5a7381814f47921e8fcebedfea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 550
+  bulletForce: 500
+  rockForce: 100
+  dynamiteForce: 100
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1
+  feet: {fileID: 5181439367676843400}
+  throwFrom: {fileID: 5181439367892498472}
+  speed: 10
+  rockCount: 10
+  bulletCount: 10
+  dynamiteCount: 10
+  weaponType: pistol
+  bullet: {fileID: 1905580830758265098, guid: 82c651afda3d4144ba499038d3a4a8ef, type: 3}
+  dynamite: {fileID: 0}
+  rock: {fileID: 1217550244407075533, guid: a4b1e64a3517c9c43bc25c86d0f26d6f, type: 3}
+  gun: {fileID: 6431833054015553747, guid: b3020da440ece3844a48da0be6e612ca, type: 3}
