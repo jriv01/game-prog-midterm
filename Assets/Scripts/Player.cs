@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     public float speed = 10;
+
+    public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +31,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(hp);
         grounded = Physics2D.OverlapCircle(feet.position,.3f,whatIsGround);
 
         if(Input.GetKeyDown("space") && grounded){
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
+
+        if(Input.GetMouseButtonDown(0)){
+            Vector3 mousePos = Input.mousePosition;   
+            mousePos.z=UnityEngine.Camera.main.nearClipPlane;
+            Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
+            Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
+            print(Worldpos2D);
+            print(transform.position);
+            Instantiate(bullet, Worldpos2D, Quaternion.identity);
+            
+        }
+
     }
 
     void FixedUpdate(){
+        
         float xSpeed = Input.GetAxis("Horizontal") * speed;
         _rigidBody.velocity = new Vector2(xSpeed, _rigidBody.velocity.y);
     }
@@ -61,8 +75,10 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator DamageTaken(){
-        _spriteRenderer.color = new Color(1.0f,0.0f,0.0f,0.0f);
+        _spriteRenderer.color = new Color(1.0f,0.0f,0.0f,255.0f);
         yield return new WaitForSeconds(.5f);
+        _spriteRenderer.color = new Color(255.0f,255.0f,255.0f,255.0f);
+        
     }
 }
 
