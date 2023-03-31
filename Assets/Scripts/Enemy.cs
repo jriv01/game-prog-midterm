@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public float x_speed;
     float x_pos, y_pos;
 
+    public int hp=3;
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,6 +29,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hp<=0){
+            print("dead");
+            Destroy(gameObject);
+        }
         _rigidbody2D.velocity = new Vector2(x_speed*x_pos, y_pos);
     }
 
@@ -35,8 +41,16 @@ public class Enemy : MonoBehaviour
         if(other.CompareTag("bounds")){
             x_speed = -1 * x_speed;
         }
-        
-     
+        if(other.CompareTag("bullet")){
+            hp-=3;
+        }
+        if(other.CompareTag("rock")){
+            hp-=1;
+        }
+        if(other.CompareTag("dynamiteZone")){
+            hp-=5;
+        }
+
     }
 
 
