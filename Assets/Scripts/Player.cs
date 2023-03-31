@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public float bulletForce = 2000f;
     public float rockForce = 100f;
 
+    public float dynamiteForce = 100f;
+
     public LayerMask whatIsGround;
 
     public Transform feet;
@@ -28,9 +30,12 @@ public class Player : MonoBehaviour
     public int rockCount = 10;
 
     public int bulletCount = 10;
+
+    public int dynamiteCount = 10;
     public string weaponType = "rock";
 
     public GameObject bullet;
+    public GameObject dynamite;
 
     public GameObject rock;
 
@@ -52,6 +57,10 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown("space") && grounded){
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
+
+        if(Input.GetMouseButtonDown(1) && dynamiteCount > 0){
+            StartCoroutine(throwDynamite());
+        }
 
         if(Input.GetMouseButtonDown(0)){
             if(weaponType == "rock"){
@@ -78,7 +87,7 @@ public class Player : MonoBehaviour
 
         float xScale = transform.localScale.x;
 
-        if((xScale > 0 && xSpeed < 0) || (xScale < 1 && xSpeed > 0)){
+        if((xScale > 0 && xSpeed < 0) || (xScale < 0 && xSpeed > 0)){
             transform.localScale *= new Vector2(-1,1);
         }
     }
@@ -108,14 +117,27 @@ public class Player : MonoBehaviour
         
     }
     IEnumerator throwRock(){
-        GameObject shot;
+        GameObject rockObj;
         Vector3 mousePos = Input.mousePosition;   
         mousePos.z=Camera.main.nearClipPlane;
         Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
         Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
-        shot = Instantiate(rock, throwFrom.position, Quaternion.identity);
+        rockObj = Instantiate(rock, throwFrom.position, Quaternion.identity);
         Vector2 rockVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
-        shot.GetComponent<Rigidbody2D>().AddForce(rockVector*rockForce);
+        rockObj.GetComponent<Rigidbody2D>().AddForce(rockVector*rockForce);
+        yield return new WaitForSeconds(0);
+    }
+
+    IEnumerator throwDynamite(){
+        GameObject dynamiteObj;
+        Vector3 mousePos = Input.mousePosition;   
+        mousePos.z=Camera.main.nearClipPlane;
+        Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
+        Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
+        dynamiteObj = Instantiate(dynamite, throwFrom.position, Quaternion.identity);
+        Vector2 dynamiteVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
+        dynamiteObj.GetComponent<Rigidbody2D>().AddForce(dynamiteVector*dynamiteForce);
+        dynamiteObj.GetComponent<Rigidbody2D>().AddTorque(1 * 1 * 20f);
         yield return new WaitForSeconds(0);
     }
 
