@@ -10,15 +10,21 @@ public class Player : MonoBehaviour
 
     private static int hp = 10;
 
+    public float bulletForce = 200f;
+
     public LayerMask whatIsGround;
 
     public Transform feet;
+
+    public Transform throwFrom;
 
     bool grounded = false;
 
     private SpriteRenderer _spriteRenderer;
 
     public float speed = 10;
+
+    public int rockCount = 10;
 
     public GameObject bullet;
     // Start is called before the first frame update
@@ -38,14 +44,10 @@ public class Player : MonoBehaviour
         }       
 
         if(Input.GetMouseButtonDown(0)){
-            Vector3 mousePos = Input.mousePosition;   
-            mousePos.z=UnityEngine.Camera.main.nearClipPlane;
-            Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
-            Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
-            print(Worldpos2D);
-            print(transform.position);
-            Instantiate(bullet, Worldpos2D, Quaternion.identity);
-            
+            if(rockCount>0){
+                StartCoroutine(fire());
+                rockCount--;
+            }
         }
 
     }
@@ -79,6 +81,17 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         _spriteRenderer.color = new Color(255.0f,255.0f,255.0f,255.0f);
         
+    }
+    IEnumerator fire(){
+        GameObject shot;
+        Vector3 mousePos = Input.mousePosition;   
+        mousePos.z=Camera.main.nearClipPlane;
+        Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
+        Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
+        shot = Instantiate(bullet, throwFrom.position, Quaternion.identity);
+        Vector2 BulletVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
+        shot.GetComponent<Rigidbody2D>().AddForce(BulletVector*bulletForce);
+        return;
     }
 }
 
