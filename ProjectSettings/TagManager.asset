@@ -8,6 +8,8 @@ TagManager:
   - Spike
   - LavaPool
   - Destructible
+  - rock
+  - gunCollect
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - playerDamage
-  - 
+  - IgnorePlayer
   - 
   - 
   - 

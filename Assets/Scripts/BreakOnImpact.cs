@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDamager : MonoBehaviour
+public class BreakOnImpact : MonoBehaviour
 {
-
-    public static int damageVal = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +17,9 @@ public class PlayerDamager : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if(other.CompareTag("Player")){
+        if(!(other.CompareTag("Player") || other.CompareTag("rock"))){
+            
             Destroy(gameObject);
         }
-    }
+    } 
 }
