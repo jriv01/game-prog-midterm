@@ -59,7 +59,11 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Spike")){
             hp-=1;
             StartCoroutine(DamageTaken());
-
+        }
+        if(other.CompareTag("Enemy")){
+            print("HIT");
+            hp -= 1;
+            StartCoroutine(DamageTaken());
         }
         if(other.CompareTag("Fireball")){
             hp-=2;
