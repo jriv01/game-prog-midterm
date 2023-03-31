@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     public int bulletCount = 10;
 
-    public int dynamiteCount = 10;
+    public int dynamiteCount = 3;
     public string weaponType = "rock";
 
     public GameObject bullet;
@@ -60,14 +60,11 @@ public class Player : MonoBehaviour
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
 
-        if(other.CompareTag("Enemy")){
-            print("HIT");
-            hp -= 1;
-            StartCoroutine(DamageTaken());
-        }
+        
 
         if(Input.GetMouseButtonDown(1) && dynamiteCount > 0){
             StartCoroutine(throwDynamite());
+            dynamiteCount--;
         }
 
         if(Input.GetMouseButtonDown(0)){
@@ -125,6 +122,12 @@ public class Player : MonoBehaviour
         if(other.CompareTag("TNTBox")){
             dynamiteCount+=5;
         }
+
+        // if(other.CompareTag("Enemy")){
+        //     print("HIT");
+        //     hp -= 1;
+        //     StartCoroutine(DamageTaken());
+        // }
 
     }
 

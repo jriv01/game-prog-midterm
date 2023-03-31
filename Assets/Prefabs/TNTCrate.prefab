@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1256486967282886077}
   - component: {fileID: 6974076267302899475}
   - component: {fileID: 6598547048059394390}
+  - component: {fileID: 7500985500098948807}
   m_Layer: 0
   m_Name: TNTCrate
-  m_TagString: Untagged
+  m_TagString: TNTBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.629261, y: 3.8585992}
   m_EdgeRadius: 0
+--- !u!114 &7500985500098948807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441683635678830921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767f01b029d87bf4b88fce21cf35be70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
