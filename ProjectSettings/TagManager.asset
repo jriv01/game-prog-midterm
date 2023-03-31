@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - LavaPool
   - Destructible
+  - rock
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - playerDamage
-  - 
+  - IgnorePlayer
   - 
   - 
   - 

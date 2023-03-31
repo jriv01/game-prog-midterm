@@ -4711,12 +4711,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4834696118905648038, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
+      propertyPath: levelToLoad
+      value: HardLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 4834696118905648039, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
       propertyPath: m_Name
       value: RockPathway
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4834696118905648038, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
 --- !u!4 &1085642677 stripped
 Transform:
