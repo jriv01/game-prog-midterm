@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     public int bulletCount = 10;
 
-    public int dynamiteCount = 10;
+    public int dynamiteCount = 3;
     public string weaponType = "rock";
 
     public GameObject bullet;
@@ -52,14 +52,19 @@ public class Player : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(feet.position,.3f,whatIsGround);
 
-        
+        if(hp<=0){
+            SceneManager.LoadScene("Fail");
+        }
 
         if(Input.GetKeyDown("space") && grounded){
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
 
+        
+
         if(Input.GetMouseButtonDown(1) && dynamiteCount > 0){
             StartCoroutine(throwDynamite());
+            dynamiteCount--;
         }
 
         if(Input.GetMouseButtonDown(0)){
@@ -96,27 +101,34 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Spike")){
             hp-=1;
             StartCoroutine(DamageTaken());
-
-            SceneManager.LoadScene("Fail");
-
-        }
-        if(other.CompareTag("Enemy")){
-            print("HIT");
-            hp -= 1;
-            StartCoroutine(DamageTaken());
-            SceneManager.LoadScene("Fail");
-
         }
         if(other.CompareTag("Fireball")){
             hp-=2;
             StartCoroutine(DamageTaken());
-            SceneManager.LoadScene("Fail");
         }
         if(other.CompareTag("LavaPool")){
             hp-=10;
             StartCoroutine(DamageTaken());
-            SceneManager.LoadScene("Fail");
         }
+        if(other.CompareTag("gunCollect")){
+            weaponType = "pistol";
+        }
+        if(other.CompareTag("magCollect")){
+            bulletCount+=10;
+        }
+        if(other.CompareTag("rockPileCollect")){
+            rockCount+=10;
+        }
+        if(other.CompareTag("TNTBox")){
+            dynamiteCount+=5;
+        }
+
+        // if(other.CompareTag("Enemy")){
+        //     print("HIT");
+        //     hp -= 1;
+        //     StartCoroutine(DamageTaken());
+        // }
+
     }
 
     IEnumerator DamageTaken(){
@@ -143,6 +155,12 @@ public class Player : MonoBehaviour
         mousePos.z=Camera.main.nearClipPlane;
         Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
         Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
+        float xScale = transform.localScale.x;
+
+        if((xScale > 0 && Worldpos2D.x < transform.position.x) || (xScale < 0 && Worldpos2D.x > transform.position.x)){
+            transform.localScale *= new Vector2(-1,1);
+        }
+
         dynamiteObj = Instantiate(dynamite, throwFrom.position, Quaternion.identity);
         Vector2 dynamiteVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         dynamiteObj.GetComponent<Rigidbody2D>().AddForce(dynamiteVector*dynamiteForce);
@@ -160,6 +178,13 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
         shot = Instantiate(bullet, throwFrom.position, Quaternion.identity);
         gunObj = Instantiate(gun, transform.position, Quaternion.identity);
+        float xScale = transform.localScale.x;
+        print(angle);
+        print(xScale);
+        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90)))){
+            transform.localScale *= new Vector2(-1,1);
+            gunObj.transform.localScale *= new Vector2(-1,1);
+        }
         gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         Vector2 BulletVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         shot.GetComponent<Rigidbody2D>().AddForce(BulletVector*bulletForce);
