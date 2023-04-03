@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
+    private Animator _animator;
+
     public float speed = 10;
 
     public int rockCount = 10;
@@ -45,13 +47,14 @@ public class Player : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = Physics2D.OverlapCircle(feet.position,.1f,whatIsGround);
-
+        _animator.SetBool("IsGrounded", grounded);
         if(hp<=0){
             SceneManager.LoadScene("Fail");
         }
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
             }
             if(weaponType == "pistol"){
                 if(bulletCount>0){
+                    _animator.SetBool("IsShooting", true);
                     StartCoroutine(firePistol());
                     bulletCount--;
                 }
@@ -177,7 +181,8 @@ public class Player : MonoBehaviour
         Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
         float angle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
         shot = Instantiate(bullet, throwFrom.position, Quaternion.identity);
-        gunObj = Instantiate(gun, transform.position, Quaternion.identity);
+        gunObj = Instantiate(gun, transform.position + new Vector3(-.03f,.2f,0), Quaternion.identity);
+        gunObj.transform.parent = transform;
         float xScale = transform.localScale.x;
         print(angle);
         print(xScale);
