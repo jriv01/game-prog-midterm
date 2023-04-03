@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.OverlapCircle(feet.position,.3f,whatIsGround);
+        grounded = Physics2D.OverlapCircle(feet.position,.1f,whatIsGround);
 
         if(hp<=0){
             SceneManager.LoadScene("Fail");
