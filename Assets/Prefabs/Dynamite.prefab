@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 8863099968095104112, guid: c4e14a7a47c5b9443acdfdb759137235, type: 3}
   damageZone: {fileID: 3409270083494964969, guid: 8dc87fb046d871445bba1f9a0235e9e0, type: 3}
+  timeToBlow: 3
