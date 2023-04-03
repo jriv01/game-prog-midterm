@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        hp=10;
     }
 
     // Update is called once per frame
@@ -82,6 +83,7 @@ public class Player : MonoBehaviour
                     _animator.SetBool("IsShooting", true);
                     StartCoroutine(firePistol());
                     bulletCount--;
+                    
                 }
             }
             
@@ -185,16 +187,24 @@ public class Player : MonoBehaviour
         gunObj.transform.parent = transform;
         float xScale = transform.localScale.x;
         print(angle);
-        print(xScale);
-        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90)))){
-            transform.localScale *= new Vector2(-1,1);
-            gunObj.transform.localScale *= new Vector2(-1,1);
+        if(angle<0){
+            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360-angle));
         }
-        gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        else{
+            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        print(xScale);
+        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90))) || (xScale < 0 && ((angle<90 && angle>0) || (angle<0 && angle>-90)))){
+            print(xScale);
+            print(angle);
+            transform.localScale *= new Vector2(-1,1);
+            gunObj.transform.localScale *= new Vector2(1,-1);
+        }
+        
         Vector2 BulletVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         shot.GetComponent<Rigidbody2D>().AddForce(BulletVector*bulletForce);
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.25f);
         Destroy(gunObj);
+        _animator.SetBool("IsShooting", false);
     }
 }
-
