@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
+    private Animator _animator;
+
     public float speed = 10;
 
     public int rockCount = 10;
@@ -45,13 +47,15 @@ public class Player : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        hp=10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.OverlapCircle(feet.position,.3f,whatIsGround);
-
+        grounded = Physics2D.OverlapCircle(feet.position,.1f,whatIsGround);
+        _animator.SetBool("IsGrounded", grounded);
         if(hp<=0){
             SceneManager.LoadScene("Fail");
         }
@@ -76,8 +80,10 @@ public class Player : MonoBehaviour
             }
             if(weaponType == "pistol"){
                 if(bulletCount>0){
+                    _animator.SetBool("IsShooting", true);
                     StartCoroutine(firePistol());
                     bulletCount--;
+                    
                 }
             }
             
@@ -177,19 +183,28 @@ public class Player : MonoBehaviour
         Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
         float angle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
         shot = Instantiate(bullet, throwFrom.position, Quaternion.identity);
-        gunObj = Instantiate(gun, transform.position, Quaternion.identity);
+        gunObj = Instantiate(gun, transform.position + new Vector3(-.03f,.2f,0), Quaternion.identity);
+        gunObj.transform.parent = transform;
         float xScale = transform.localScale.x;
         print(angle);
-        print(xScale);
-        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90)))){
-            transform.localScale *= new Vector2(-1,1);
-            gunObj.transform.localScale *= new Vector2(-1,1);
+        if(angle<0){
+            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360-angle));
         }
-        gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        else{
+            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        print(xScale);
+        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90))) || (xScale < 0 && ((angle<90 && angle>0) || (angle<0 && angle>-90)))){
+            print(xScale);
+            print(angle);
+            transform.localScale *= new Vector2(-1,1);
+            gunObj.transform.localScale *= new Vector2(1,-1);
+        }
+        
         Vector2 BulletVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         shot.GetComponent<Rigidbody2D>().AddForce(BulletVector*bulletForce);
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.25f);
         Destroy(gunObj);
+        _animator.SetBool("IsShooting", false);
     }
 }
-

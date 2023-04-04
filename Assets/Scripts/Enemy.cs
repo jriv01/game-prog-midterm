@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hp<=0){
+        if(hp<=0 || hp==0){
             print("dead");
             Destroy(gameObject);
         }
