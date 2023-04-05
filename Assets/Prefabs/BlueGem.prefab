@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2013406148305059308}
   - component: {fileID: 3419081908811255133}
   m_Layer: 0
-  m_Name: RedGem
+  m_Name: BlueGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1490124154, guid: 01a39736e8606b4428e0e094388a2320, type: 3}
+  m_Sprite: {fileID: -1929253471, guid: 01a39736e8606b4428e0e094388a2320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb63d88fcb1bb53438eab5393dff4044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 60
+  value: 40
   pickupSound: {fileID: 8300000, guid: 2ad0588894eb19c47961cfe7c21cde4a, type: 3}
 --- !u!60 &4800458196054150756
 PolygonCollider2D:

@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class Mushroom : MonoBehaviour
 {
-    void OnTrigger2DEnter(Collider2D other) {
+    public AudioClip pickupSound;
+    AudioSource audioSource;
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")) {
-            // TODO: Increase player lives
-            Destroy(gameObject);
+            StartCoroutine(HandleCollision());
         }
+    }
+    
+    IEnumerator HandleCollision() {
+        // TODO: Increase player lives
+
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        audioSource.PlayOneShot(pickupSound);
+        yield return new WaitForSeconds(2);
+        audioSource.Stop();
+        Destroy(gameObject);
     }
 }
