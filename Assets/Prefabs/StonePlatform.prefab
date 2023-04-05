@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1452159005266889132}
   - component: {fileID: 5538901233429665243}
   - component: {fileID: 8957920668635420524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StonePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.32247972}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.11, y: 12.65, z: 0.14999999, w: 12.54}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 33, y: 33}
     newSize: {x: 33, y: 33}
