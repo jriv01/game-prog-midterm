@@ -9,7 +9,13 @@ public class Stalactites : MonoBehaviour
     public Transform[] spawnPoints;
     public int dropChance = 100;
     public float dropDelay = 3f;
+    public AudioClip debrisSound;
+    AudioSource audioSource;
     bool droppingStalactite = false;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -22,7 +28,9 @@ public class Stalactites : MonoBehaviour
 
     IEnumerator DropStalactite() {
         GameObject debris = Instantiate(debrisPrefab, spawnPoints[0].position, Quaternion.Euler(90, 0, 0));
+        audioSource.PlayOneShot(debrisSound);
         yield return new WaitForSeconds(dropDelay);
+        audioSource.Stop();
         Instantiate(fallingStalactitePrefab, spawnPoints[0].position, Quaternion.identity);
         Destroy(debris);
         droppingStalactite = false;
