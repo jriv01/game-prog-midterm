@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _rigidBody; 
     public float jumpForce = 200f;
 
-    public static int hp;
+    public static int hp = 30;
 
     public float bulletForce = 2000f;
     public float rockForce = 100f;
