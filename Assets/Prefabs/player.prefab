@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 550
+  initHP: 10
   bulletForce: 500
   rockForce: 100
   dynamiteForce: 100
@@ -222,7 +223,7 @@ MonoBehaviour:
   throwFrom: {fileID: 1033379597381546820}
   speed: 10
   rockCount: 10
-  bulletCount: 1000
+  bulletCount: 10
   dynamiteCount: 10
   weaponType: rock
   bullet: {fileID: 1905580830758265098, guid: 82c651afda3d4144ba499038d3a4a8ef, type: 3}
