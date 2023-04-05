@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b857a430817afc468d105c59d3ce747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballChance: 10
+  fireballChance: 1000
   fireballPrefab: {fileID: 1631013059758773027, guid: b3f77bed2aeada840a328830ebdaa81c, type: 3}
   spawnPoints:
   - spawnPoint: {fileID: 4181146393005065063}

@@ -9,14 +9,17 @@ public class LavaPool : MonoBehaviour
     public FireballSpawnPoint[] spawnPoints;
     public AudioClip fireballSound;
     AudioSource audioSource_;
+    GameObject player;
 
     void Start() {
         audioSource_ = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        audioSource_.enabled = player.transform.position.y >= transform.position.y;
         int chance = Random.Range(0, fireballChance);
         if(chance == 0) {
             audioSource_.PlayOneShot(fireballSound);
