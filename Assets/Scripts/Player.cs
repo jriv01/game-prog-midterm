@@ -60,16 +60,11 @@ public class Player : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(feet.position,.1f,whatIsGround);
         _animator.SetBool("IsGrounded", grounded);
-        if(hp<=0){
-            SceneManager.LoadScene("Fail");
-        }
 
         if(Input.GetKeyDown("space") && grounded){
             _rigidBody.AddForce(new Vector2(0,jumpForce));
         }       
-
         
-
         if(Input.GetMouseButtonDown(1) && dynamiteCount > 0){
             StartCoroutine(throwDynamite());
             dynamiteCount--;
@@ -108,19 +103,6 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if(other.CompareTag("Spike")){
-            print(hp);
-            hp-=1;
-            StartCoroutine(DamageTaken());
-        }
-        if(other.CompareTag("Fireball")){
-            hp-=2;
-            StartCoroutine(DamageTaken());
-        }
-        if(other.CompareTag("LavaPool")){
-            hp-=10;
-            StartCoroutine(DamageTaken());
-        }
         if(other.CompareTag("gunCollect")){
             weaponType = "pistol";
         }
@@ -142,12 +124,13 @@ public class Player : MonoBehaviour
 
     }
 
-    IEnumerator DamageTaken(){
+    public IEnumerator DamageTaken(){
         _spriteRenderer.color = new Color(1.0f,0.0f,0.0f,255.0f);
         yield return new WaitForSeconds(.5f);
         _spriteRenderer.color = new Color(255.0f,255.0f,255.0f,255.0f);
         
     }
+
     IEnumerator throwRock(){
         GameObject rockObj;
         Vector3 mousePos = Input.mousePosition;   
