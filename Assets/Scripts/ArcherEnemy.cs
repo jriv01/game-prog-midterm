@@ -6,6 +6,7 @@ public class ArcherEnemy : MonoBehaviour
 {
     public GameObject arrow;
     public Transform center;
+    public float lookDst;
     Transform player;
     Rigidbody2D _rigidbody2D;
     // Start is called before the first frame update
@@ -19,25 +20,25 @@ public class ArcherEnemy : MonoBehaviour
 
     IEnumerator FireArrow(){
         while(true){
-            GameObject arrow_obj;
             yield return new WaitForSeconds(2);
-            
+            if (Vector2.Distance(transform.position,player.position) < lookDst){
+                    GameObject arrow_obj;
+                    Rigidbody2D arrow_rb; 
 
-            Rigidbody2D arrow_rb; 
-            
-            float arr_speed_x = player.position.normalized.x * arrow_speed;
-            if(transform.localScale.x < 0){
-                arrow_obj = Instantiate(arrow, center.position, Quaternion.identity);
-                arrow_obj.transform.eulerAngles = new Vector3(0,0,45.5f);
-                arrow_rb = arrow_obj.GetComponent<Rigidbody2D>();
-                arrow_rb.velocity = new Vector2(arr_speed_x,0);
-                
-            } else {
-                arrow_obj = Instantiate(arrow, center.position, Quaternion.identity);
-                arrow_obj.transform.eulerAngles = new Vector3(0,0,-138);
-                arrow_rb = arrow_obj.GetComponent<Rigidbody2D>();
-                arrow_rb.velocity = new Vector2(-1*arr_speed_x,0);
+                    if(transform.localScale.x < 0){
+                        arrow_obj = Instantiate(arrow, center.position, Quaternion.identity);
+                        arrow_obj.transform.eulerAngles = new Vector3(0,0,45.5f);
+                        arrow_rb = arrow_obj.GetComponent<Rigidbody2D>();
+                        arrow_rb.velocity = new Vector2(-1*arrow_speed,0);
+                        
+                    } else {
+                        arrow_obj = Instantiate(arrow, center.position, Quaternion.identity);
+                        arrow_obj.transform.eulerAngles = new Vector3(0,0,-138);
+                        arrow_rb = arrow_obj.GetComponent<Rigidbody2D>();
+                        arrow_rb.velocity = new Vector2(arrow_speed,0);
+                    }
             }
+            
 
             
         }
