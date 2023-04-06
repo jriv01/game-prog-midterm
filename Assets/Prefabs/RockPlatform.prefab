@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7689339038790483511}
   - component: {fileID: 8808266090158939129}
   - component: {fileID: 7299965459037037232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RockPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

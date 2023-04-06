@@ -15,6 +15,8 @@ TagManager:
   - Enemy
   - bullet
   - dynamiteZone
+  - magCollect
+  - rockPileCollect
   layers:
   - Default
   - TransparentFX

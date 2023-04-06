@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -8,7 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _rigidBody; 
     public float jumpForce = 200f;
 
-    private static int hp = 10;
+    public static int hp = 30;
 
     public float bulletForce = 2000f;
     public float rockForce = 100f;
@@ -48,10 +49,13 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        hp=10;
     }
 
     // Update is called once per frame
+    public static void resetHPTo(int val){
+        hp = val;
+    }
+
     void Update()
     {
         grounded = Physics2D.OverlapCircle(feet.position,.1f,whatIsGround);
@@ -95,7 +99,7 @@ public class Player : MonoBehaviour
         
         float xSpeed = Input.GetAxis("Horizontal") * speed;
         _rigidBody.velocity = new Vector2(xSpeed, _rigidBody.velocity.y);
-
+        _animator.SetFloat("Speed", Math.Abs(xSpeed));
         float xScale = transform.localScale.x;
 
         if((xScale > 0 && xSpeed < 0) || (xScale < 0 && xSpeed > 0)){
@@ -105,6 +109,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Spike")){
+            print(hp);
             hp-=1;
             StartCoroutine(DamageTaken());
         }
@@ -182,28 +187,29 @@ public class Player : MonoBehaviour
         Vector3 Worldpos=Camera.main.ScreenToWorldPoint(mousePos);  
         Vector2 Worldpos2D=new Vector2(Worldpos.x,Worldpos.y);
         float angle = Mathf.Atan2(Worldpos2D.y - transform.position.y, Worldpos2D.x - transform.position.x) * Mathf.Rad2Deg;
-        shot = Instantiate(bullet, throwFrom.position, Quaternion.identity);
-        gunObj = Instantiate(gun, transform.position + new Vector3(-.03f,.2f,0), Quaternion.identity);
+        shot = Instantiate(bullet, transform.position + new Vector3(-.058f,.287f,0), Quaternion.identity);
+        gunObj = Instantiate(gun, transform.position + new Vector3(-.058f,.287f,0), Quaternion.identity);
         gunObj.transform.parent = transform;
         float xScale = transform.localScale.x;
-        print(angle);
+        if(xScale < 0){
+            gunObj.transform.localScale *= new Vector2(1,-1);
+        }
+        if((xScale > 0 && ((angle>=90 && angle<180) || (angle>-180 && angle<=-90))) || (xScale < 0 && ((angle<=90 && angle>0) || (angle<0 && angle>=-90)))){
+            transform.localScale *= new Vector2(-1,1);
+            gunObj.transform.localScale *= new Vector2(-1,1);
+            gunObj.transform.localScale *= new Vector2(1,-1);
+        }
         if(angle<0){
-            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360-angle));
+            gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180+(180-(-angle))));
         }
         else{
             gunObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        print(xScale);
-        if((xScale > 0 && ((angle>90 && angle<180) || (angle>-180 && angle<-90))) || (xScale < 0 && ((angle<90 && angle>0) || (angle<0 && angle>-90)))){
-            print(xScale);
-            print(angle);
-            transform.localScale *= new Vector2(-1,1);
-            gunObj.transform.localScale *= new Vector2(1,-1);
-        }
+
         
         Vector2 BulletVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         shot.GetComponent<Rigidbody2D>().AddForce(BulletVector*bulletForce);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.1f);
         Destroy(gunObj);
         _animator.SetBool("IsShooting", false);
     }

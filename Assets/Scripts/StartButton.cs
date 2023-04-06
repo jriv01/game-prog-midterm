@@ -8,6 +8,7 @@ public class StartButton : MonoBehaviour
     //GameManager _gameManager;
     public void StartGame(){
         //_gameManager = FindObjectOfType<GameManager>();
+        Player.resetHPTo(10);
         SceneManager.LoadScene(sceneName);
     }
 }
