@@ -17,6 +17,12 @@ TagManager:
   - dynamiteZone
   - magCollect
   - rockPileCollect
+  - GameManager
+  - HealthUI
+  - ScoreUI
+  - GunUI
+  - RockUI
+  - DynaUI
   layers:
   - Default
   - TransparentFX
