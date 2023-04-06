@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 3593002231372404571}
   - component: {fileID: 3377153670959253468}
   - component: {fileID: 2053753309673040175}
+  - component: {fileID: 6121928763680461834}
   m_Layer: 6
   m_Name: LavaPool
   m_TagString: LavaPool
@@ -449,3 +450,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.56}
   m_EdgeRadius: 0
+--- !u!114 &6121928763680461834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181146393380161610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd43c455ec13547a783213fe59e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTrigger: 0
+  damage: 10

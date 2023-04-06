@@ -18,11 +18,15 @@ public class Gem : MonoBehaviour
     }
 
     IEnumerator HandleCollision() {
-        // TODO: Add to player score
+        // Add to the player score
+        GameManager manager = GameObject.FindObjectOfType<GameManager>();
+        manager.AddScore(value);
 
+        // Remove the gem
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
+        // Play a sound & destroy
         audioSource.PlayOneShot(pickupSound);
         yield return new WaitForSeconds(2);
         audioSource.Stop();

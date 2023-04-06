@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6127392389286868986}
   - component: {fileID: 9135874138053264588}
   - component: {fileID: 3058426085340984066}
+  - component: {fileID: 7608743495903917277}
   m_Layer: 0
   m_Name: FallingStalacite
   m_TagString: Spike
@@ -150,3 +151,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767f01b029d87bf4b88fce21cf35be70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7608743495903917277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061361930789845050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd43c455ec13547a783213fe59e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTrigger: 1
+  damage: 2
