@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     public int rockCount = 10;
 
-    public int bulletCount = 10;
+    public int bulletCount = 25;
 
     public int dynamiteCount = 3;
     public string weaponType = "rock";

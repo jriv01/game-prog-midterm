@@ -224,7 +224,7 @@ MonoBehaviour:
   throwFrom: {fileID: 1033379597381546820}
   speed: 10
   rockCount: 10
-  bulletCount: 10
+  bulletCount: 25
   dynamiteCount: 10
   weaponType: rock
   bullet: {fileID: 1905580830758265098, guid: 82c651afda3d4144ba499038d3a4a8ef, type: 3}
