@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RemadeLevels/Hard.unity
     guid: 91954c379d0f99b409330bccdca61dc8
   - enabled: 1
+    path: Assets/Scenes/BossLevel.unity
+    guid: 2bced88304fd67c4c9487972ce3b6a0f
+  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: ec169b25ad6ab4097b720b06b784f0ab
   - enabled: 1
