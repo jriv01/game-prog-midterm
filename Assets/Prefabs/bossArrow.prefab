@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7375546973654009288}
   - component: {fileID: 796716012318643332}
   - component: {fileID: 5930488942274070766}
+  - component: {fileID: 537352268646410430}
   m_Layer: 0
   m_Name: bossArrow
   m_TagString: arrow
@@ -131,7 +132,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -152,3 +153,15 @@ PolygonCollider2D:
       - {x: -0.08401112, y: -0.09565313}
       - {x: -0.3602575, y: 0.18046576}
       - {x: -0.35953394, y: 0.30089545}
+--- !u!114 &537352268646410430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142631477764072248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe1d376fedecb14b890ea09ad5118cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

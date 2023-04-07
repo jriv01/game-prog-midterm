@@ -13,8 +13,8 @@ public class BossAI : MonoBehaviour
     public Transform shotPos;
     Transform player;
     AudioSource _audioSource;
-
-    int hp = 3;
+    GameManager _gameManager;
+    int hp = 500;
     
 
     private Animator _animator;
@@ -23,13 +23,14 @@ public class BossAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+        _gameManager = GameObject.FindObjectOfType<GameManager>();
         NextAttack();
     }
 
     void NextAttack(){
         StopAllCoroutines();
         _audioSource.PlayOneShot(laughter_clip, 1);
-        int state = Random.Range(0,5);
+        int state = Random.Range(0,6);
         print(state);
         _animator.SetBool("isFired",false);
         _animator.SetBool("isButcher",false);
@@ -104,8 +105,8 @@ public class BossAI : MonoBehaviour
         _audioSource.PlayOneShot(summon_clip, 1);
         yield return new WaitForSeconds(2);
         for(int i = 0; i < 2; i++){
-            float x_pos = Random.Range(-3,30);
-            float y_pos = -4.01f;
+            float x_pos = Random.Range(-20,11);
+            float y_pos = -3.8f;
             GameObject enemy = Instantiate(swordEnemy,new Vector2(x_pos,y_pos),Quaternion.identity);
             EnemyAI script = enemy.GetComponent<EnemyAI>();
             script.lookDst = 20;
@@ -154,6 +155,9 @@ public class BossAI : MonoBehaviour
             Instantiate(bossDiePrefab,transform.position, Quaternion.identity);
             Destroy(gameObject);
             
+        }
+        if(other.CompareTag("Player")){
+            _gameManager.TakeDamage(20);
         }
         
 
