@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     }
 
     private void SceneChange(Scene current, Scene next) {
+        if(next.name == "Easy") {
+            health = 100;
+            score = 0;
+        }
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<TextMeshProUGUI>();
         healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<TextMeshProUGUI>();
@@ -73,6 +78,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Fail");
         }
 
+        healthUI.text = "HEALTH: " + health;
+    }
+
+    public void HealPlayer(int value) {
+        health += value;
+        health = Mathf.Clamp(health, 0, 100);
         healthUI.text = "HEALTH: " + health;
     }
 
