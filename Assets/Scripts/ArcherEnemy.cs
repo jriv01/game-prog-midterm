@@ -7,13 +7,16 @@ public class ArcherEnemy : MonoBehaviour
     public GameObject arrow;
     public Transform center;
     public float lookDst;
+    public AudioClip fireArrow;
     Transform player;
     Rigidbody2D _rigidbody2D;
+    AudioSource _audioSource;
     // Start is called before the first frame update
     float arrow_speed = 5.5f;
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(FireArrow());
     }
@@ -21,6 +24,8 @@ public class ArcherEnemy : MonoBehaviour
     IEnumerator FireArrow(){
         while(true){
             yield return new WaitForSeconds(2);
+            //Plays a specific clip on an Audio Source once
+            _audioSource.PlayOneShot(fireArrow, 1);
             if (Vector2.Distance(transform.position,player.position) < lookDst){
                     GameObject arrow_obj;
                     Rigidbody2D arrow_rb; 
