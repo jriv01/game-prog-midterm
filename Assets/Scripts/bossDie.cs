@@ -18,7 +18,7 @@ public class bossDie : MonoBehaviour
         if(transform.position.y < -3.5f){
             _animator.enabled = false;
         }
-        if(transform.position.x > 18.5f){
+        if(transform.position.x > 11.01f){
             foreach (GameObject wall in breakableWalls){
                 wall.GetComponent<Destructible>().DestroySelf();
             }
