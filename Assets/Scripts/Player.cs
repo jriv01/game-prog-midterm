@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         Vector2 rockVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         rockObj.GetComponent<Rigidbody2D>().AddForce(rockVector*rockForce);
         yield return new WaitForSeconds(0);
-        _animator.SetBool("IsThrowing", false);
+        _animator.SetBool("IsThrowing", false); 
     }
 
     IEnumerator throwDynamite(){
