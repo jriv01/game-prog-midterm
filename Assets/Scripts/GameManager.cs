@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
         scoreUI.text = "SCORE: " + score;
     }
 
+    public void resetHealth() {
+        health = 100;
+        print("resetHealth");
+    }
+
     public void TakeDamage(int value) {
         health -= value; 
         health = Mathf.Clamp(health, 0, 100);
@@ -89,6 +94,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        scoreUI.text = "SCORE: " + score;
+        healthUI.text = "HEALTH: " + health;
         if(gunAmmoUI != null && _player.weaponType == "pistol") {
             gunAmmoUI.text = "" + _player.bulletCount;
         } else if(gunAmmoUI != null) {
