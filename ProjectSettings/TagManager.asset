@@ -23,6 +23,8 @@ TagManager:
   - GunUI
   - RockUI
   - DynaUI
+  - arrow
+  - ground
   layers:
   - Default
   - TransparentFX
