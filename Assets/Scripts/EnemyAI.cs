@@ -61,6 +61,8 @@ public class EnemyAI : MonoBehaviour
         if(other.CompareTag("bounds")){
             print("HIT the bounds");
             x_speed = 0;
+            
+            
         }
         if(other.CompareTag("bullet")){
             hp-=3;
