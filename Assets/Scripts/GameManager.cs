@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     }
 
     private void SceneChange(Scene current, Scene next) {
+        if(next.name == "Easy") {
+            health = 100;
+            score = 0;
+        }
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         scoreUI = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<TextMeshProUGUI>();
         healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<TextMeshProUGUI>();
@@ -63,6 +68,11 @@ public class GameManager : MonoBehaviour
         scoreUI.text = "SCORE: " + score;
     }
 
+    public void resetHealth() {
+        health = 100;
+        print("resetHealth");
+    }
+
     public void TakeDamage(int value) {
         health -= value; 
         health = Mathf.Clamp(health, 0, 100);
@@ -76,8 +86,16 @@ public class GameManager : MonoBehaviour
         healthUI.text = "HEALTH: " + health;
     }
 
+    public void HealPlayer(int value) {
+        health += value;
+        health = Mathf.Clamp(health, 0, 100);
+        healthUI.text = "HEALTH: " + health;
+    }
+
     void Update()
     {
+        scoreUI.text = "SCORE: " + score;
+        healthUI.text = "HEALTH: " + health;
         if(gunAmmoUI != null && _player.weaponType == "pistol") {
             gunAmmoUI.text = "" + _player.bulletCount;
         } else if(gunAmmoUI != null) {

@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8649960642709758896, guid: 1f89834e0e9d4c444b801f2d514d15b1, type: 3}
       propertyPath: m_Name
-      value: StonePlatform (8)
+      value: FallPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f89834e0e9d4c444b801f2d514d15b1, type: 3}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!114 &725381818
 MonoBehaviour:
   m_ObjectHideFlags: 0
