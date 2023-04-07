@@ -9,8 +9,11 @@ public class BossAI : MonoBehaviour
     float aimSpeed = .5f;
     int arrowForce = 500;
     public GameObject arrowPrefab,swordEnemy,summonBubble,bossDiePrefab;
+    public AudioClip fireArrow,summon_clip,laughter_clip;
     public Transform shotPos;
     Transform player;
+    AudioSource _audioSource;
+
     int hp = 3;
     
 
@@ -19,11 +22,13 @@ public class BossAI : MonoBehaviour
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         NextAttack();
     }
 
     void NextAttack(){
         StopAllCoroutines();
+        _audioSource.PlayOneShot(laughter_clip, 1);
         int state = Random.Range(0,5);
         print(state);
         _animator.SetBool("isFired",false);
@@ -96,6 +101,7 @@ public class BossAI : MonoBehaviour
 
     IEnumerator SpawnEnemy(){
         GameObject sum_text = Instantiate(summonBubble, new Vector2(shotPos.position.x+3.5f,shotPos.position.y), Quaternion.identity);
+        _audioSource.PlayOneShot(summon_clip, 1);
         yield return new WaitForSeconds(2);
         for(int i = 0; i < 2; i++){
             float x_pos = Random.Range(-3,30);
@@ -115,6 +121,7 @@ public class BossAI : MonoBehaviour
         _animator.SetBool("isFired",true);
         yield return new WaitForSeconds(delay);
         for (int i = 0; i < shotNum; i++){
+            _audioSource.PlayOneShot(fireArrow, 1);
             GameObject newArrow = Instantiate(arrowPrefab,shotPos.position, transform.rotation*Quaternion.Euler(0,0,-20));
             newArrow.GetComponent<Rigidbody2D>().AddForce(transform.up*arrowForce);
             yield return new WaitForSeconds(reload);
