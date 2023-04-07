@@ -2442,7 +2442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883e009c733ed42c2b306057d0de4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Easy
+  sceneName: Tutorial
 --- !u!114 &1831749601
 MonoBehaviour:
   m_ObjectHideFlags: 0
