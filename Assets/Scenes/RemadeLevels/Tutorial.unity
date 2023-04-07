@@ -1605,7 +1605,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834696118905648038, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
       propertyPath: levelToLoad
-      value: Menu
+      value: Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834696118905648038, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
+      propertyPath: nextSceneToLoad
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4834696118905648039, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
       propertyPath: m_Name
@@ -6047,6 +6051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093744215}
   - component: {fileID: 2093744213}
+  - component: {fileID: 2093744216}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -6165,6 +6170,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2093744216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093744212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa725f24627e7542a119fca16e80916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2102058281
 GameObject:
   m_ObjectHideFlags: 0

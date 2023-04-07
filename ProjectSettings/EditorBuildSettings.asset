@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RemadeLevels/LevelSelectionMap.unity
     guid: c640da36c9da44cfd9069cb032767d34
   - enabled: 1
+    path: Assets/Scenes/RemadeLevels/Tutorial.unity
+    guid: b7ae14eaa818fc84b8921f6ecb5aa1bc
+  - enabled: 1
     path: Assets/Scenes/RemadeLevels/Easy.unity
     guid: a7de315799e15db439e96fcc9ce84d84
   - enabled: 1
@@ -27,12 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BossLevel.unity
     guid: 2bced88304fd67c4c9487972ce3b6a0f
   - enabled: 1
-    path: Assets/Scenes/Win.unity
+    path: Assets/Scenes/RemadeLevels/Win.unity
     guid: ec169b25ad6ab4097b720b06b784f0ab
   - enabled: 1
-    path: Assets/Scenes/Fail.unity
+    path: Assets/Scenes/RemadeLevels/Fail.unity
     guid: 2b021f22fb592403bb48fb2833a0d19b
-  - enabled: 1
-    path: Assets/Scenes/RemadeLevels/Tutorial.unity
-    guid: b7ae14eaa818fc84b8921f6ecb5aa1bc
   m_configObjects: {}
