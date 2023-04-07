@@ -81,6 +81,12 @@ public class GameManager : MonoBehaviour
         healthUI.text = "HEALTH: " + health;
     }
 
+    public void HealPlayer(int value) {
+        health += value;
+        health = Mathf.Clamp(health, 0, 100);
+        healthUI.text = "HEALTH: " + health;
+    }
+
     void Update()
     {
         if(gunAmmoUI != null && _player.weaponType == "pistol") {
