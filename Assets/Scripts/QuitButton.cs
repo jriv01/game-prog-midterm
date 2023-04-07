@@ -6,6 +6,8 @@ public class QuitButton : MonoBehaviour
 {
     public void QuitGame()
     {
+        // Once you quit, the levels will be relocked.
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
 }

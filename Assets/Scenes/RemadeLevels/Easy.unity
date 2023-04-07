@@ -1733,6 +1733,10 @@ PrefabInstance:
       propertyPath: levelToLoad
       value: FirstMedium
       objectReference: {fileID: 0}
+    - target: {fileID: 4834696118905648038, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
+      propertyPath: nextSceneToLoad
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4834696118905648039, guid: e0e37b29d9db0e24db0fc768fbbaf8ee, type: 3}
       propertyPath: m_Name
       value: RockPathway
@@ -3194,7 +3198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106097179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.5091, y: 8.58, z: 10}
+  m_LocalPosition: {x: 32.3, y: 8.58, z: 10}
   m_LocalScale: {x: 1.303334, y: 1.303334, z: 1.303334}
   m_ConstrainProportionsScale: 0
   m_Children: []
