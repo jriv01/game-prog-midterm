@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6024141058699831322}
   - component: {fileID: 6024141058699831326}
   - component: {fileID: 569278231}
+  - component: {fileID: 2126644573215563532}
   m_Layer: 0
   m_Name: swordsEnemy
   m_TagString: Enemy
@@ -134,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6024141058699831326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,3 +172,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2126644573215563532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194470037468800251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd43c455ec13547a783213fe59e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTrigger: 0
+  damage: 5

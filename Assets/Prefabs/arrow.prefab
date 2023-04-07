@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7632658109950703188}
   - component: {fileID: 7632658109950703191}
   - component: {fileID: 7632658109950703190}
-  - component: {fileID: 7632658109950703193}
   - component: {fileID: 5831053517541764527}
+  - component: {fileID: 3234121534830098126}
+  - component: {fileID: 3444683943505403300}
   m_Layer: 0
   m_Name: arrow
   m_TagString: arrow
@@ -108,8 +109,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7632658109950703193
-BoxCollider2D:
+--- !u!114 &5831053517541764527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632658109950703192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df32c77d99dbf34e987305572ae2c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 1
+--- !u!114 &3234121534830098126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7632658109950703192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbd43c455ec13547a783213fe59e377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnTrigger: 1
+  damage: 5
+--- !u!60 &3444683943505403300
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,19 +159,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.96, y: 0.96}
-  m_EdgeRadius: 0
---- !u!114 &5831053517541764527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7632658109950703192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df32c77d99dbf34e987305572ae2c92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifespan: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.03893774, y: 0.01861079}
+      - {x: -0.00522873, y: -0.058808487}
+      - {x: -0.081876874, y: -0.095264114}
+      - {x: -0.36236292, y: 0.18018815}
+      - {x: -0.35907713, y: 0.3012005}
+      - {x: -0.23958467, y: 0.30718803}

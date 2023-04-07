@@ -7,7 +7,7 @@ public class BossAI : MonoBehaviour
     float moveSpeed = .01f;
     int rotationSpeed = 120;
     float aimSpeed = .5f;
-    int arrowForce = 500;
+    int arrowForce = 1500;
     public GameObject arrowPrefab,swordEnemy,summonBubble,bossDiePrefab;
     public AudioClip fireArrow,summon_clip,laughter_clip;
     public Transform shotPos;

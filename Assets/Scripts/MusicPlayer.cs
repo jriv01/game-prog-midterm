@@ -9,7 +9,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void Awake()
     {
-        if (FindObjectsOfType<GameManager>().Length > 1)
+        if (FindObjectsOfType<MusicPlayer>().Length > 1)
         {
             Destroy(gameObject);
         }
