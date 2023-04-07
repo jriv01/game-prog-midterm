@@ -5,9 +5,12 @@ using UnityEngine;
 public class Mushroom : MonoBehaviour
 {
     public AudioClip pickupSound;
+    public int healValue = 10;
     AudioSource audioSource;
+    GameManager _gameManager;
     void Start() {
         audioSource = GetComponent<AudioSource>();
+        _gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -17,7 +20,7 @@ public class Mushroom : MonoBehaviour
     }
     
     IEnumerator HandleCollision() {
-        // TODO: Increase player lives
+        _gameManager.HealPlayer(10);
 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;

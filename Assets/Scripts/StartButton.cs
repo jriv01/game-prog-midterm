@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 public class StartButton : MonoBehaviour
 {
     public string sceneName;
-    //GameManager _gameManager;
+    GameManager _gameManager;
     public void StartGame(){
-        //_gameManager = FindObjectOfType<GameManager>();
-        Player.resetHPTo(10);
+        _gameManager = FindObjectOfType<GameManager>();
+        _gameManager.resetHealth();
         SceneManager.LoadScene(sceneName);
     }
 }

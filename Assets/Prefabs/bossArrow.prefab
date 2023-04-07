@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9118507966611957312}
   - component: {fileID: 6017831747903825980}
   - component: {fileID: 7375546973654009288}
-  - component: {fileID: 7099724008339553530}
   - component: {fileID: 796716012318643332}
+  - component: {fileID: 5930488942274070766}
   m_Layer: 0
   m_Name: bossArrow
   m_TagString: arrow
@@ -108,32 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7099724008339553530
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142631477764072248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
-    newSize: {x: 0.96, y: 0.96}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.96, y: 0.96}
-  m_EdgeRadius: 0
 --- !u!114 &796716012318643332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,4 +120,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df32c77d99dbf34e987305572ae2c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 1
+  lifespan: 3
+--- !u!60 &5930488942274070766
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142631477764072248}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 0.96, y: 0.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.23988725, y: 0.29961962}
+      - {x: 0.030099723, y: 0.029942453}
+      - {x: 0.0023891525, y: -0.06180099}
+      - {x: -0.08401112, y: -0.09565313}
+      - {x: -0.3602575, y: 0.18046576}
+      - {x: -0.35953394, y: 0.30089545}

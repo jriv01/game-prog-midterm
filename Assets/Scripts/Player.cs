@@ -132,6 +132,7 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator throwRock(){
+        _animator.SetBool("IsThrowing", true);
         GameObject rockObj;
         Vector3 mousePos = Input.mousePosition;   
         mousePos.z=Camera.main.nearClipPlane;
@@ -141,9 +142,11 @@ public class Player : MonoBehaviour
         Vector2 rockVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         rockObj.GetComponent<Rigidbody2D>().AddForce(rockVector*rockForce);
         yield return new WaitForSeconds(0);
+        _animator.SetBool("IsThrowing", false);
     }
 
     IEnumerator throwDynamite(){
+        _animator.SetBool("IsThrowing", true);
         GameObject dynamiteObj;
         Vector3 mousePos = Input.mousePosition;   
         mousePos.z=Camera.main.nearClipPlane;
@@ -159,7 +162,11 @@ public class Player : MonoBehaviour
         Vector2 dynamiteVector = new Vector2((Worldpos2D.x-throwFrom.position.x),(Worldpos2D.y-throwFrom.position.y));
         dynamiteObj.GetComponent<Rigidbody2D>().AddForce(dynamiteVector*dynamiteForce);
         dynamiteObj.GetComponent<Rigidbody2D>().AddTorque(1 * 1 * 20f);
-        yield return new WaitForSeconds(0);
+        
+        print("IsThrowing");
+        print("isGrounded " + grounded);
+        yield return new WaitForSeconds(0f);
+        _animator.SetBool("IsThrowing", false);
     }
 
     IEnumerator firePistol(){
